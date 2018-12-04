@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.main_rv_item_view1.view.*
 import kotlinx.android.synthetic.main.parent_recycler.view.*
 
 class Main_RV_Adapter(var model_liat: ArrayList<Main_RV_Model>) : RecyclerView.Adapter<Main_RV_Adapter.ViewHolder>() {
-
+    var viewType: Int = 1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //// TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         /* var view = LayoutInflater.from(parent.context).inflate(R.layout.main_rv_item_view1, parent, false)
@@ -62,26 +62,38 @@ class Main_RV_Adapter(var model_liat: ArrayList<Main_RV_Model>) : RecyclerView.A
                 viewHolderC.tv_rv_child.text = main_RV_Model.name
 
                 when (main_RV_Model.name) {
-                    "Deals of the Day" ->
+                    "Deals of the Day" -> {
+                        viewType = 0
                         viewHolderC.rv_child.layoutManager = GridLayoutManager(viewHolderC.rv_child.context, 2)
-                    "Shop By Category" ->
+                    }
+                    "Shop By Category" -> {
+                        viewType = 0
                         viewHolderC.rv_child.layoutManager = GridLayoutManager(viewHolderC.rv_child.context, 3)
-                    "Best Offer" ->
+                    }
+                    "Best Offer" -> {
+                        viewType = 1
                         viewHolderC.rv_child.layoutManager =
                                 LinearLayoutManager(viewHolderC.rv_child.context, LinearLayout.VERTICAL, false)
-                    else ->
+                    }
+                    "Trending Product" -> {
+                        viewType = 1
                         viewHolderC.rv_child.layoutManager =
                                 LinearLayoutManager(viewHolderC.rv_child.context, LinearLayout.HORIZONTAL, false)
+                    }
+                    else -> {
+                        viewType = 0
+                        viewHolderC.rv_child.layoutManager =
+                                LinearLayoutManager(viewHolderC.rv_child.context, LinearLayout.HORIZONTAL, false)
+                    }
 
                 }
                 viewHolderC.rv_child.addItemDecoration(DividerItemDecoration(viewHolderC.rv_child.context, 0))
-                var childAdapter = ChildAdapter(main_RV_Model.children)
+                var childAdapter = ChildAdapter(main_RV_Model.children, viewType)
                 viewHolderC.rv_child.adapter = childAdapter
 
                 Glide.with(viewHolderC.iv_rv_offer.context)
                     .load(main_RV_Model.offerImage)
                     .into(viewHolderC.iv_rv_offer)
-
 
             }
         }

@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <RelativeLayout
+        android:layout_height="match_parent"
+        tools:context=".ItemDescriptionActivity">
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:padding="10dp"
-            android:background="@android:color/white"
-            android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
         <ImageView
-                android:id="@+id/iv_buy_item"
-                android:layout_width="150dp"
+                android:id="@+id/iv_disItemImage"
+                android:layout_width="match_parent"
                 android:src="@drawable/ic_launcher_background"
-                android:layout_height="150dp" android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"/>
+                android:layout_height="wrap_content"/>
+
         <LinearLayout
-                android:layout_toEndOf="@+id/iv_buy_item"
                 android:layout_width="match_parent"
                 android:layout_margin="5dip"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
             <TextView
-                    android:id="@+id/tv_buy_item_Name"
+                    android:id="@+id/tv_disItemName"
                     android:layout_width="match_parent"
                     android:lines="1"
                     android:maxLines="2"
@@ -30,7 +33,7 @@
                     android:layout_height="wrap_content"/>
 
             <TextView
-                    android:id="@+id/tv_buy_item_discreption"
+                    android:id="@+id/tv_disItemDis"
                     android:layout_width="wrap_content"
                     android:lines="1"
                     android:maxLines="2"
@@ -41,7 +44,7 @@
                     android:layout_height="wrap_content"/>
 
             <TextView
-                    android:id="@+id/tv_buy_item_units"
+                    android:id="@+id/tv_disitem_units"
                     android:layout_width="match_parent"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                     android:text="Combo - 2 Item"
@@ -54,14 +57,14 @@
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
                 <TextView
-                        android:id="@+id/tv_buy_item_dprice"
+                        android:id="@+id/tv_disitem_dprice"
                         android:layout_width="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                         android:text="Rs. 700"
                         android:singleLine="true"
                         android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/tv_buy_item_sprice"
+                        android:id="@+id/tv_distem_sprice"
                         android:layout_marginStart="15dp"
                         android:layout_width="wrap_content"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
@@ -86,7 +89,7 @@
                         android:textColor="@color/colorPrimaryDark"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                         android:gravity="center_horizontal"
-                        android:id="@+id/tv_iIncrement"
+                        android:id="@+id/tv_disiIncrement"
                         android:text="+">
 
                 </TextView>
@@ -97,13 +100,13 @@
                         android:textColor="@color/colorPrimaryDark"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                         android:gravity="center_horizontal"
-                        android:id="@+id/tv_nQuntity"
+                        android:id="@+id/tv_disnQuntity"
                         android:text="1">
 
                 </TextView>
 
                 <TextView
-                        android:id="@+id/tv_iDecrement"
+                        android:id="@+id/tv_disiDecrement"
                         android:gravity="center_horizontal"
                         android:textColor="@color/colorPrimaryDark"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
@@ -114,5 +117,15 @@
                 </TextView>
             </LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_dSameProduct"
+                android:layout_width="match_parent"
+                android:layout_marginStart="1dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"/>
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
