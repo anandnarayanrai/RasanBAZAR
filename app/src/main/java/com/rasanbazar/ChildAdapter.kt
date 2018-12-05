@@ -7,10 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.layout_item_buy.view.*
-
 
 class ChildAdapter(private val children: List<ChildModel>, private val viewType: Int) :
     RecyclerView.Adapter<ChildAdapter.ViewHolder>() {
@@ -56,6 +56,12 @@ class ChildAdapter(private val children: List<ChildModel>, private val viewType:
                     viewHolderA.tv_nQuntity.text = (yy.toInt() - 1).toString()
                 }
 
+                if (child.isInStock) {
+                    viewHolderA.layout_isInStock.visibility = View.INVISIBLE
+                } else {
+                    viewHolderA.layout_isInStock.visibility = View.VISIBLE
+                }
+
                 holder.itemView.setOnClickListener {
                     //mListener.invoke(item) // <- item instance of ItemObject
                     //  Toast.makeText(holder.itemView.context, "assate", Toast.LENGTH_SHORT).show()
@@ -93,7 +99,6 @@ class ChildAdapter(private val children: List<ChildModel>, private val viewType:
         return viewType
     }
 
-
     open inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     inner class ViewHolderItemA(itemView: View) : ViewHolder(itemView) {
@@ -103,8 +108,8 @@ class ChildAdapter(private val children: List<ChildModel>, private val viewType:
         val tv_nQuntity: TextView = itemView.tv_nQuntity
         val tv_iIncrement: TextView = itemView.tv_iIncrement
         val tv_iDecrement: TextView = itemView.tv_iDecrement
+        val layout_isInStock: RelativeLayout = itemView.layout_isInStock
     }
-
 
     inner class ViewHolderItemB(itemView: View) : ViewHolder(itemView) {
         var child_imageView: ImageView = itemView.findViewById(R.id.child_imageView)

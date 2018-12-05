@@ -1,6 +1,7 @@
 package com.rasanbazar
 
-import android.support.v7.widget.DividerItemDecoration
+import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -11,10 +12,10 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.main_rv_item_view1.view.*
 import kotlinx.android.synthetic.main.parent_recycler.view.*
 
-class Main_RV_Adapter(var model_liat: ArrayList<Main_RV_Model>) : RecyclerView.Adapter<Main_RV_Adapter.ViewHolder>() {
+class Main_RV_Adapter(var context: Context, var model_liat: ArrayList<Main_RV_Model>) :
+    RecyclerView.Adapter<Main_RV_Adapter.ViewHolder>() {
     var viewType: Int = 1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //// TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -44,7 +45,16 @@ class Main_RV_Adapter(var model_liat: ArrayList<Main_RV_Model>) : RecyclerView.A
                 //viewHolderA.tv_name.text = "Ini layout item a dengan position $position"
                 viewHolderA.tv_name.text = main_RV_Model.name
 
+                viewHolderA.tv_name.setOnClickListener {
+                    var intent = Intent(viewHolder.itemView.context, LoginRegisterActivity::class.java)
+                    viewHolder.itemView.context.startActivity(intent)
+                }
+
                 viewHolderA.tv_address.text = main_RV_Model.Address
+
+                viewHolderA.tv_addChange.setOnClickListener {
+                    (context as MainActivity).GetAddredd()
+                }
             }
             2 -> {
                 //ViewHolderItemB
@@ -87,7 +97,7 @@ class Main_RV_Adapter(var model_liat: ArrayList<Main_RV_Model>) : RecyclerView.A
                     }
 
                 }
-                viewHolderC.rv_child.addItemDecoration(DividerItemDecoration(viewHolderC.rv_child.context, 0))
+                //viewHolderC.rv_child.addItemDecoration(DividerItemDecoration(viewHolder.itemView.context, 0))
                 var childAdapter = ChildAdapter(main_RV_Model.children, viewType)
                 viewHolderC.rv_child.adapter = childAdapter
 
@@ -114,7 +124,8 @@ class Main_RV_Adapter(var model_liat: ArrayList<Main_RV_Model>) : RecyclerView.A
 
     inner class ViewHolderItemA(itemView: View) : ViewHolder(itemView) {
         var tv_name: TextView = itemView.findViewById(R.id.tv_name)
-        var tv_address: TextView = itemView.tv_address
+        var tv_address: TextView = itemView.findViewById(R.id.tv_address)
+        var tv_addChange: TextView = itemView.findViewById(R.id.tv_addChange)
     }
 
     inner class ViewHolderItemB(itemView: View) : ViewHolder(itemView) {

@@ -24,55 +24,64 @@ class ViewAllProductActivity : AppCompatActivity() {
         childModel_list.add(
             ChildModel(
                 "https://www.huertosdesoria.org/tienda/wp-content/uploads/2016/04/verdura-ecologica.jpg",
-                "Grocery & Staples"
-            )
-        )
-        childModel_list.add(
-            ChildModel(
-                "https://wedigthepig.com/wp-content/uploads/2016/05/gogreen-pic-007-3.png",
-                "Fruit"
+                "Grocery & Staples",
+                true
             )
         )
         childModel_list.add(
             ChildModel(
                 "https://www.huertosdesoria.org/tienda/wp-content/uploads/2016/04/verdura-ecologica.jpg",
-                "Personal Care"
-            )
-        )
-        childModel_list.add(
-            ChildModel(
-                "http://vapelabpk.com/wp-content/uploads/revslider/royalmarket1/nuts.png",
-                "Dry Fruits"
+                "Fruit",
+                true
             )
         )
         childModel_list.add(
             ChildModel(
                 "https://www.huertosdesoria.org/tienda/wp-content/uploads/2016/04/verdura-ecologica.jpg",
-                "Baby & Kids"
+                "Personal Care",
+                true
             )
         )
         childModel_list.add(
             ChildModel(
                 "https://www.huertosdesoria.org/tienda/wp-content/uploads/2016/04/verdura-ecologica.jpg",
-                "Biscuits, Snacks & Chocolates"
+                "Dry Fruits",
+                true
             )
         )
         childModel_list.add(
             ChildModel(
                 "https://www.huertosdesoria.org/tienda/wp-content/uploads/2016/04/verdura-ecologica.jpg",
-                "Breakfast & Dairy"
+                "Baby & Kids",
+                false
             )
         )
         childModel_list.add(
             ChildModel(
                 "https://www.huertosdesoria.org/tienda/wp-content/uploads/2016/04/verdura-ecologica.jpg",
-                "Vegetables"
+                "Biscuits, Snacks & Chocolates",
+                true
             )
         )
         childModel_list.add(
             ChildModel(
                 "https://www.huertosdesoria.org/tienda/wp-content/uploads/2016/04/verdura-ecologica.jpg",
-                "Beverages"
+                "Breakfast & Dairy",
+                true
+            )
+        )
+        childModel_list.add(
+            ChildModel(
+                "https://www.huertosdesoria.org/tienda/wp-content/uploads/2016/04/verdura-ecologica.jpg",
+                "Vegetables",
+                false
+            )
+        )
+        childModel_list.add(
+            ChildModel(
+                "https://www.huertosdesoria.org/tienda/wp-content/uploads/2016/04/verdura-ecologica.jpg",
+                "Beverages",
+                true
             )
         )
 

@@ -1,3 +1,3 @@
 package com.rasanbazar
 
-data class ChildModel(val productImage: String = "", val title: String = "")
+data class ChildModel(val productImage: String = "", val title: String = "", val isInStock: Boolean)
